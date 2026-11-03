@@ -1,13 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-/**
- *
- * @author david
- */
-public class Pasajero {
+public class Pasajero extends Persona implements Descontable {
+    private String pasaporte;
     
+    public Pasajero(String nombre, String cedula, int edad, String telefono, String pasaporte){
+        super(nombre, cedula,edad,telefono);
+        this.pasaporte=pasaporte;
+        
+    }
+    
+    public String getPasaporte(){
+        return pasaporte;
+    }
+    
+    @Override
+    public int getPorcentajeDescuento(){
+        if (getEdad()<12){
+            return 25;    
+        } else if (getEdad()>=65){
+            return 50;
+        } else{
+            return 0;
+        }
+    }
+    
+    @Override
+    public String toString(){
+        return super.toString()+ " |Pasaporte: "+pasaporte;
+    }
 }
