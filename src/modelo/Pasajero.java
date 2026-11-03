@@ -1,12 +1,11 @@
 package modelo;
 
 public class Pasajero extends Persona implements Descontable {
-    private String pasaporte;
+    private final String pasaporte;
     
     public Pasajero(String nombre, String cedula, int edad, String telefono, String pasaporte){
         super(nombre, cedula,edad,telefono);
-        this.pasaporte=pasaporte;
-        
+        this.pasaporte=pasaporte;  
     }
     
     public String getPasaporte(){
