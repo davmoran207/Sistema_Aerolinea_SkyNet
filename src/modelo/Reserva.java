@@ -17,7 +17,7 @@ public class Reserva {
         this.empleadoAtencion=empleadoAtencion;
         this.asientoAsignado=asientoAsignado;
         this.valorPagado=valorPagado;
-        boolean act=estaActiva;
+        this.estaActiva=estaActiva;
         
     } 
     
@@ -39,8 +39,11 @@ public class Reserva {
     public double getValorPagado(){
         return valorPagado;
     }
+    public boolean isEstaActiva(){
+       return estaActiva;
+    }
     public void cancelar(){
-        
+        estaActiva=false;
     }
     
     @Override
