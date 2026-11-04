@@ -44,13 +44,59 @@ public class Vuelo {
         int asientosEconomico= capacidadMaxima - cantidadPrimera - cantidadEjecutivo;
         int numeroActual=1;
         for(int i=0; i<cantidadPrimera;i++){
-            asientos.add(new AsientoPrimerClase(""+numeroActual, true,100.0));
+            asientos.add(new AsientoPrimeraClase(""+numeroActual, true ,100.0));
             numeroActual++;
         }
-    public int contarAsientosOcupados(){
-        
+        for(int i=0; i<cantidadEjecutivo;i++){
+            asientos.add(new AsientoEjecutivo(""+numeroActual, true , 100.0));
+            numeroActual++;
+        }
+        for(int i=0;i<asientosEconomico;i++){
+            asientos.add(new AsientoEconomico(""+numeroActual, true ,100.0));
+            numeroActual++;   
+        }
     }
-    public int contarAsientosOcupados(String clase){
+    
+    public int contarAsientosOcupados(){
+        int contador=0;
         
+        for(Asiento a: asientos){
+            if(!a.isEstaLibre() ){
+              contador+=1;  
+            }
+        }
+        
+        return contador;
+    }
+    
+    public int contarAsientosOcupados(String clase){
+        int contador=0;
+        
+        for(Asiento a: asientos){
+            if(!a.isEstaLibre()){
+                if (clase.equalsIgnoreCase("PrimeraClase") && a instanceof AsientoPrimeraClase){
+                    contador+=1;
+                } else if(clase.equalsIgnoreCase("Ejecutivo") && a instanceof AsientoEjecutivo){
+                    contador+=1;    
+                } else if(clase.equalsIgnoreCase("Economico") && a instanceof AsientoEconomico ){
+                    contador+=1;
+                }
+            }
+        }
+        
+        return contador;
+    }
+    
+    @Override
+    public String toString(){
+        return " |Codigo: "+codigo+" |Origen: "+origen+" |Destino: "+destino+" |Fecha: "+fecha+" |Capacidad: "+capacidadMaxima;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Vuelo otroVuelo){
+        return this.codigo.equals(otroVuelo.codigo);
+    } 
+        return false;
     }
 }
