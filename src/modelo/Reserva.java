@@ -17,7 +17,7 @@ public class Reserva {
         this.empleadoAtencion=empleadoAtencion;
         this.asientoAsignado=asientoAsignado;
         this.valorPagado=valorPagado;
-        this.estaActiva=estaActiva;
+        this.estaActiva=true;
         
     } 
     
