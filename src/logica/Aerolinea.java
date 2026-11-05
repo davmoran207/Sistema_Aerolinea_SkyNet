@@ -249,6 +249,4 @@ public class Aerolinea {
         }
         return true;
     }
-}     this.reservas= new ArrayList<>();
-    }
 }
