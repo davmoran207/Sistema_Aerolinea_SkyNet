@@ -19,6 +19,10 @@ public class Aerolinea {
     }
 
     public void registrarVuelo(String codigo, String origen, String destino, String fecha, int capacidadMaxima){
+        if(buscarVuelo(codigo) != null){
+            System.out.println("Error: Ya existe un vuelo registrado con el codigo: "+codigo);
+            return;
+        }
         if(!textoValido(codigo) || !textoValido(origen) || !textoValido(destino) || !textoValido(fecha)
                 || capacidadMaxima<10 || capacidadMaxima>100){
             System.out.println("Complete todos los datos y use una capacidad entre 10 y 100.");
@@ -51,6 +55,10 @@ public class Aerolinea {
     }
 
     public void registrarPasajero(String nombre, String cedula, int edad, String telefono, String pasaporte){
+        if(buscarPersona(cedula) != null){
+            System.out.println("Error: Ya existe un pasajero registrada con la cedula: "+cedula);
+            return;
+        }
         if(!textoValido(nombre) || !textoValido(telefono) || !textoValido(pasaporte)
                 || !cedulaValida(cedula) || edad<0 || edad>120){
             System.out.println("Revise nombre, cedula (10 digitos), edad, telefono y pasaporte.");
@@ -62,6 +70,10 @@ public class Aerolinea {
     }
 
     public void registrarEmpleado(String nombre, String cedula, int edad, String telefono, String cargo, double sueldo){
+        if(buscarPersona(cedula) != null){
+            System.out.println("Error: Ya existe un empleado registrada con la cedula: "+cedula);
+            return;
+        }
         if(!textoValido(nombre) || !textoValido(telefono) || !textoValido(cargo)
                 || !cedulaValida(cedula) || edad<18 || edad>120){
             System.out.println("Revise nombre, cedula (10 digitos), edad (minimo 18), telefono y cargo.");
