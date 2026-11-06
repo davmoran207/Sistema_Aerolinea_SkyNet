@@ -72,11 +72,15 @@ break;
 default:
 System.out.println("Opcion invalida. Elija un numero del menu.");
 }
+if (opcion != 0) {
+    presioneEnterParaContinuar();
+}
 System.out.println();
 } while(opcion!=0);
 
 teclado.close();
 }
+
 
 private static void mostrarMenu(){
 System.out.println("------------- MENU PRINCIPAL -------------");
@@ -161,6 +165,11 @@ return Double.parseDouble(teclado.nextLine().trim().replace(',', '.'));
 System.out.println("Ingrese un numero valido (ej. 850.50).");
 }
 }
+}
+
+private static void presioneEnterParaContinuar() {
+    System.out.println("Presione ENTER para continuar...");
+    teclado.nextLine();
 }
 
 }
