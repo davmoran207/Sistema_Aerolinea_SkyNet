@@ -175,6 +175,13 @@ public class Aerolinea {
         System.out.println("Numero = libre   X = ocupado");
         int contador= 0;
         for(Asiento a: vuelo.getAsientos()){
+            if (contador == 0) {
+                System.out.println("\n--- PRIMERA CLASE ---");
+            } else if (contador == 10) {
+                System.out.println("\n--- CLASE EJECUTIVA ---");
+            } else if (contador == 30) {
+                System.out.println("\n--- CLASE ECONOMICA ---");
+            }
             System.out.print(a.isEstaLibre() ? String.format("[%3s] ", a.getNumero()) : "[  X] ");
             contador++;
             if(contador%10==0){
